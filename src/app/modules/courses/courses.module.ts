@@ -7,12 +7,14 @@ import { MatCardModule } from '@angular/material/card';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { CourseCardComponent } from './course-card/course-card.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 
 @NgModule({
   declarations: [
     CoursesComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,

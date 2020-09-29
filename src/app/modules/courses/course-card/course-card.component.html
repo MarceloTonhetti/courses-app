@@ -5,10 +5,10 @@
     <mat-card-title>{{Course.instructor.name}}</mat-card-title>
     <mat-card-subtitle>{{Course.platform}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [routerLink]="['/courses/detail', Course.name]" class="coursePoster-image routerLink-course"
+  <img mat-card-image [routerLink]="['/courses/detail', Course._id]" class="coursePoster-image routerLink-course"
     [src]="Course.image" alt="Poster of a {{Course.name}}">
   <mat-card-content>
-    <span [routerLink]="['/courses/detail', Course.name]" class="mat-h2 routerLink-course">{{Course.name}}</span>
+    <span [routerLink]="['/courses/detail', Course._id]" class="mat-h2 routerLink-course">{{Course.name}}</span>
     <p>
       {{sliceDescription(Course.description)}}
     </p>
