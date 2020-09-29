@@ -1,0 +1,19 @@
+.instructor-image {
+  background-size: cover;
+}
+
+.coursePoster-image {
+  height: 400px;
+}
+
+.content>mat-card {
+  width: 400px; 
+}
+
+.routerLink-course {
+  cursor: pointer;
+}
+
+.routerLink-course:hover {
+  text-decoration: underline;
+}
