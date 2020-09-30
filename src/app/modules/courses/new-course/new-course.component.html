@@ -29,7 +29,7 @@
       <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext
         [disabled]="instructorFormGroup.invalid">Próximo</button>
     </div>
-  </mat-step> <!-- ATÉ AQUI OK-->
+  </mat-step>
   <mat-step [stepControl]="courseFormGroup" editable="false">
     <form [formGroup]="courseFormGroup" class="form">
       <ng-template matStepLabel>Curso</ng-template>
@@ -44,7 +44,7 @@
       <mat-form-field class="form-element">
         <mat-label>Número de Aulas</mat-label>
         <input matInput formControlName="numberClasses" placeholder="Número de Aulas" required>
-      </mat-form-field><!-- ATÉ AQUI OK-->
+      </mat-form-field>
       <mat-form-field class="form-element">
         <mat-label>Imagem</mat-label>
         <input matInput formControlName="image" placeholder="Link da Imagem" required>
@@ -59,12 +59,12 @@
           placeholder="Descrição" required></textarea>
       </mat-form-field>
       <div class="form-element">
-        <button mat-button class="button" color="primary" [mat-dialog-close]="true" [disabled]="courseFormGroup.invalid"
+        <button mat-button class="button" color="primary" [disabled]="courseFormGroup.invalid"
           (click)="createNewCourse()">Adicionar curso</button>
       </div>
     </form>
   </mat-step>
 </mat-horizontal-stepper>
 <div class="form-element">
-  <button mat-button class="button" color="warn" [mat-dialog-close]="false">Fechar</button>
+  <button mat-button class="button" color="warn" (click)="closeDialog()">Fechar</button>
 </div>

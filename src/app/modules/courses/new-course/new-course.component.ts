@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field'
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { Instructor } from './../../../core/models/instructor.model'
-import { InstructorsService } from './../../../core/services/instructors.service'
-import { MyToastrService } from './../../../core/services/toastr.service'
-import { CoursesService } from './../../../core/services/courses.service'
+import { Instructor } from './../../../core/models/instructor.model';
+import { InstructorsService } from './../../../core/services/instructors.service';
+import { MyToastrService } from './../../../core/services/toastr.service';
+import { CoursesService } from './../../../core/services/courses.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class NewCourseComponent implements OnInit, OnDestroy {
     private instructorService: InstructorsService,
     private courseService: CoursesService,
     private builder: FormBuilder,
-    private toastr: MyToastrService
+    private toastr: MyToastrService,
+    private dialogRef: MatDialogRef<NewCourseComponent>
   ) { }
 
   ngOnInit(): void {
@@ -108,9 +110,14 @@ export class NewCourseComponent implements OnInit, OnDestroy {
   createNewCourse(): void {
     this.httpRequest = this.courseService.createNewCourse(this.courseFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`O curso ${response.body['data']['name']} foi adicionado com sucesso`)
+      this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
+      this.dialogRef.close(false)
     })
   }
 
+  closeDialog(): void {
+    this.dialogRef.close(false)
+  }
 }
