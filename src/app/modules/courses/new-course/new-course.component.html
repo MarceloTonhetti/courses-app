@@ -55,7 +55,8 @@
       </mat-form-field>
       <mat-form-field class="form-element">
         <mat-label>Descrição</mat-label>
-        <textarea matInput formControlName="description" placeholder="Descrição" required></textarea>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description"
+          placeholder="Descrição" required></textarea>
       </mat-form-field>
       <div class="form-element">
         <button mat-button class="button" color="primary" [mat-dialog-close]="true" [disabled]="courseFormGroup.invalid"

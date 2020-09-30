@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field'
 import { Subscription } from 'rxjs';
 import { Instructor } from './../../../core/models/instructor.model'
 import { InstructorsService } from './../../../core/services/instructors.service'
@@ -21,6 +22,8 @@ export class NewCourseComponent implements OnInit, OnDestroy {
   instructors: Instructor[]
   stepInstructorLabel: String = 'Instrutor'
   courseFormGroup: FormGroup
+
+  @ViewChild('autosize') autosize: CdkTextareaAutosize
 
   constructor(
     private instructorService: InstructorsService,
