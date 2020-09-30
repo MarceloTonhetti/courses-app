@@ -8,6 +8,7 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses.component';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { ComponentsModule } from './../../components/components.module'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
     CommonModule,
     CoursesRoutingModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ComponentsModule
   ]
 })
 export class CoursesModule { }

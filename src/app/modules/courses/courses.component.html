@@ -1,3 +1,4 @@
+<app-loading *ngIf="!Courses"></app-loading>
 <div *ngIf="Courses" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let course of Courses">
     <app-course-card [Course]="course"></app-course-card>
