@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Course } from './../../core/models/course.model';
 import { CoursesService } from './../../core/services/courses.service'
+import { MatDialog } from '@angular/material/dialog'
+import { NewCourseComponent } from './new-course/new-course.component'
 
 @Component({
   selector: 'app-courses',
@@ -14,7 +16,8 @@ export class CoursesComponent implements OnInit, OnDestroy {
   Courses: Course[]
 
   constructor(
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,14 @@ export class CoursesComponent implements OnInit, OnDestroy {
       console.log(response.body['data'])
     }, err => {
       console.log(err)
+    })
+  }
+
+  openNewCourseModal(): void {
+    const dialogRef = this.dialog.open(NewCourseComponent, {
+      width: '600px',
+      height: '600px',
+      disableClose: true
     })
   }
 }
