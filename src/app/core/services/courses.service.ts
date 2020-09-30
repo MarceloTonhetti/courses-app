@@ -9,7 +9,9 @@ import { API_URL } from './../api';
 })
 export class CoursesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   findAllCourses(): Observable<HttpResponse<Course[]>> {
     return this.http.get<Course[]>(`${API_URL}/course/viewAll`, { observe: 'response' })

@@ -43,5 +43,12 @@ export class CoursesComponent implements OnInit, OnDestroy {
       height: '600px',
       disableClose: true
     })
+
+    dialogRef.afterClosed().subscribe(newCourseAdded => {
+      if (newCourseAdded) {
+        this.Courses = undefined
+        this.findAllCourses()
+      }
+    })
   }
 }
