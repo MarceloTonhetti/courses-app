@@ -14,6 +14,7 @@ export class CourseDetailComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Course: Course
+  hasError: boolean = false
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,7 +34,7 @@ export class CourseDetailComponent implements OnInit, OnDestroy {
     this.httpRequest = this.coursesService.findCourseByName(courseName).subscribe(response => {
       this.Course = response.body['data']
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 

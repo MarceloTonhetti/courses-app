@@ -14,6 +14,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Courses: Course[]
+  hasError: boolean = false
 
   constructor(
     private coursesService: CoursesService,
@@ -33,7 +34,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
       this.Courses = response.body['data']
       console.log(response.body['data'])
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 
