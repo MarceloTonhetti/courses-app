@@ -19,6 +19,7 @@
       <mat-form-field class="form-element">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="name" placeholder="Nome" required>
+        <mat-error *ngIf="instructorNameExists()">Já existe um instrutor cadastrado com esse nome</mat-error>
       </mat-form-field>
       <mat-form-field class="form-element">
         <mat-label>Imagem</mat-label>
@@ -36,6 +37,7 @@
       <mat-form-field class="form-element">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="name" placeholder="Nome" required>
+        <mat-error *ngIf="courseNameExists()">Já existe um curso cadastrado com esse nome</mat-error>
       </mat-form-field>
       <mat-form-field class="form-element">
         <mat-label>Plataforma</mat-label>

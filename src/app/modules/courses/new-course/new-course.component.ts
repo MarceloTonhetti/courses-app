@@ -7,6 +7,8 @@ import { Instructor } from './../../../core/models/instructor.model';
 import { InstructorsService } from './../../../core/services/instructors.service';
 import { MyToastrService } from './../../../core/services/toastr.service';
 import { CoursesService } from './../../../core/services/courses.service';
+import { InstructorValidator } from './../../../core/validators/instructor.validator'
+import { CourseValidator } from './../../../core/validators/course.validator'
 
 
 @Component({
@@ -31,7 +33,9 @@ export class NewCourseComponent implements OnInit, OnDestroy {
     private courseService: CoursesService,
     private builder: FormBuilder,
     private toastr: MyToastrService,
-    private dialogRef: MatDialogRef<NewCourseComponent>
+    private dialogRef: MatDialogRef<NewCourseComponent>,
+    private instructorValidator: InstructorValidator,
+    private courseValidator: CourseValidator
   ) { }
 
   ngOnInit(): void {
@@ -60,14 +64,14 @@ export class NewCourseComponent implements OnInit, OnDestroy {
 
   initializeNewInstructorFormGroup(): void {
     this.instructorFormGroup = this.builder.group({
-      name: this.builder.control(null, [Validators.required]),
+      name: this.builder.control(null, [Validators.required], this.instructorValidator.validatorUniqueInstructorName()),
       image: this.builder.control(null)
     })
   }
 
   initializeCourseFormGroup(): void {
     this.courseFormGroup = this.builder.group({
-      name: this.builder.control(null, [Validators.required]),
+      name: this.builder.control(null, [Validators.required], this.courseValidator.validatorUniqueCourseName()),
       platform: this.builder.control(null, [Validators.required]),
       numberClasses: this.builder.control(null, [Validators.required]),
       image: this.builder.control(null, [Validators.required]),
@@ -119,5 +123,13 @@ export class NewCourseComponent implements OnInit, OnDestroy {
 
   closeDialog(): void {
     this.dialogRef.close(false)
+  }
+
+  instructorNameExists(): boolean {
+    return this.instructorFormGroup.get('name').hasError('instructorNameAlreadyExists')
+  }
+
+  courseNameExists(): boolean {
+    return this.courseFormGroup.get('name').hasError('courseNameAlreadyExists')
   }
 }

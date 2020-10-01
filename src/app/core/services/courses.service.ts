@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from './../models/course.model';
 import { API_URL } from './../api';
@@ -23,5 +23,12 @@ export class CoursesService {
 
   createNewCourse(body: Course): Observable<HttpResponse<Course>> {
     return this.http.post<Course>(`${API_URL}/course/create`, body, { observe: 'response' })
+  }
+
+  validatorUniqueCourseName(courseName: string) {
+    let myParams = new HttpParams()
+
+    myParams = myParams.append('name', courseName)
+    return this.http.get<any>(`${API_URL}/course/validadeCourseName`, { params: myParams })
   }
 }
