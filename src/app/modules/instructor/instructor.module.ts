@@ -14,24 +14,18 @@ import { MatSelectModule } from '@angular/material/select'
 import { InstructorRoutingModule } from './instructor-routing.module';
 import { InstructorComponent } from './instructor.component';
 
-/*import { CourseCardComponent } from './course-card/course-card.component';
-import { CourseDetailComponent } from './course-detail/course-detail.component';*/
 import { ComponentsModule } from './../../components/components.module';
 import { InstructorCardComponent } from './instructor-card/instructor-card.component';
 import { InstructorDetailComponent } from './instructor-detail/instructor-detail.component';
 import { CoursesModule } from './../courses/courses.module';
 import { NewInstructorComponent } from './new-instructor/new-instructor.component'
-/*import { NewCourseComponent } from './new-course/new-course.component'*/
 
 @NgModule({
   declarations: [
     InstructorComponent,
     InstructorCardComponent,
     InstructorDetailComponent,
-    NewInstructorComponent/*,
-    CourseCardComponent,
-    CourseDetailComponent,
-    NewCourseComponent*/
+    NewInstructorComponent
   ],
   imports: [
     CommonModule,

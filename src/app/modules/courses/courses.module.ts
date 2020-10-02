@@ -41,7 +41,7 @@ import { NewCourseComponent } from './new-course/new-course.component'
     MatSelectModule
   ],
   exports: [
-    CourseCardComponent
+
   ]
 })
 export class CoursesModule { }
