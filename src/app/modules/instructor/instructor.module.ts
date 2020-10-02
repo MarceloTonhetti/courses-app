@@ -11,24 +11,28 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 
-import { CoursesRoutingModule } from './courses-routing.module';
-import { CoursesComponent } from './courses.component';
-import { CourseCardComponent } from './course-card/course-card.component';
-import { CourseDetailComponent } from './course-detail/course-detail.component';
-import { ComponentsModule } from './../../components/components.module';
-import { NewCourseComponent } from './new-course/new-course.component'
+import { InstructorRoutingModule } from './instructor-routing.module';
+import { InstructorComponent } from './instructor.component';
 
+/*import { CourseCardComponent } from './course-card/course-card.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';*/
+import { ComponentsModule } from './../../components/components.module';
+import { InstructorCardComponent } from './instructor-card/instructor-card.component';
+import { InstructorDetailComponent } from './instructor-detail/instructor-detail.component';
+/*import { NewCourseComponent } from './new-course/new-course.component'*/
 
 @NgModule({
   declarations: [
-    CoursesComponent,
+    InstructorComponent,
+    InstructorCardComponent,
+    InstructorDetailComponent/*,
     CourseCardComponent,
     CourseDetailComponent,
-    NewCourseComponent
+    NewCourseComponent*/
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule,
+    InstructorRoutingModule,
     MatCardModule,
     FlexLayoutModule,
     ComponentsModule,
@@ -41,4 +45,4 @@ import { NewCourseComponent } from './new-course/new-course.component'
     MatSelectModule
   ]
 })
-export class CoursesModule { }
+export class InstructorModule { }

@@ -1,0 +1,10 @@
+<app-loading *ngIf="!Instructors && !hasError"></app-loading>
+<app-error *ngIf="!Instructors && hasError"></app-error>
+<div *ngIf="Instructors && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="100%" fxFlex.xm="100%" fxFlex.sm="100%">
+    <button mat-flat-button color="primary" (click)="openNewInstructorModal()">Adicionar instrutor</button>
+  </div>
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let instructor of Instructors">
+    <app-instructor-card [Instructor]="instructor"></app-instructor-card>
+  </div>
+</div>
