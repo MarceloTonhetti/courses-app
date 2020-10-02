@@ -1,0 +1,34 @@
+<app-loading *ngIf="!Course && !hasError"></app-loading>
+<app-error *ngIf="!Course && hasError"></app-error>
+<div *ngIf="Course && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+  fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
+  <div fxFlex="50%" fxFlex.gt-sm="25%">
+    <mat-card class="mat-elevation-z0">
+      <img mat-card-image class="courseCover" [src]="Course.image" alt="Photo of a {{Course.name}}">
+    </mat-card>
+    <mat-card class="mat-elevation-z3">
+      <mat-card-header>
+        <img mat-card-avatar class="instructorImage" [src]="Course.instructor.image"
+          onError="this.src ='./../../../../assets//instructor.png'" alt="Photo of a {{Course.instructor.image}}">
+        <div class="instructorName">{{Course.instructor.name}}</div>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div fxFlex="50%" fxFlex.gt-sm="75%">
+    <mat-card class="mat-elevation-z0">
+      <div class="row">
+        <span class="mat-display-1 uppercase-text">{{Course.name}}</span>
+        <br>
+        <span class="courseInfo">{{Course.platform}}</span>
+        <br>
+        <span class="courseInfo"><b class="courseInfoBold">Nº de aulas:</b> {{Course.numberClasses}}</span>
+      </div>
+      <div *ngIf="Course.modules" class="row">
+        <span class="courseInfo"><b class="courseInfoBold">Módulos:</b> {{Course.modules}}</span>
+      </div>
+      <div class="row">
+        <p class="courseDescription"><br><b>Descrição</b> <br>{{Course.description}}</p>
+      </div>
+    </mat-card>
+  </div>
+</div>

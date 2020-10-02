@@ -1,0 +1,10 @@
+<app-loading *ngIf="!Courses && !hasError"></app-loading>
+<app-error *ngIf="!Courses && hasError"></app-error>
+<div *ngIf="Courses && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="100%" fxFlex.xm="100%" fxFlex.sm="100%">
+    <button mat-flat-button color="primary" (click)="openNewCourseModal()">Adicionar curso</button>
+  </div>
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let course of Courses">
+    <app-course-card [Course]="course"></app-course-card>
+  </div>
+</div>
