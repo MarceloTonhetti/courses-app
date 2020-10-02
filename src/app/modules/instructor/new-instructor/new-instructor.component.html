@@ -1,1 +1,24 @@
-<p>new-instructor works!</p>
+<h2 mat-dialog-title>Adicionar um curso</h2>
+<mat-horizontal-stepper linear="true" #stepper>
+  <mat-step [stepControl]="instructorFormGroup" editable="false">
+    <ng-template matStepLabel>{{stepInstructorLabel}}</ng-template>
+    <form *ngIf="isNewInstructor" [formGroup]="instructorFormGroup" class="form">
+      <mat-form-field class="form-element">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" placeholder="Nome" required>
+        <mat-error *ngIf="instructorNameExists()">Já existe um instrutor cadastrado com esse nome</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Imagem</mat-label>
+        <input matInput formControlName="image" placeholder="Link da Imagem" required>
+      </mat-form-field>
+    </form>
+    <div class="form-element">
+      <button class="button" color="primary" mat-button (click)="createNewInstructor()"
+        [disabled]="instructorFormGroup.invalid">Adicionar instrutor</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+<div class="form-element">
+  <button mat-button class="button" color="warn" (click)="closeDialog()">Fechar</button>
+</div>

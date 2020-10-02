@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { Instructor } from './../../core/models/instructor.model';
 import { InstructorsService } from './../../core/services/instructors.service'
 import { MatDialog } from '@angular/material/dialog'
-/*import { NewCourseComponent } from './new-course/new-course.component'*/
+import { NewInstructorComponent } from './new-instructor/new-instructor.component'
 
 @Component({
   selector: 'app-instructor',
@@ -39,18 +39,18 @@ export class InstructorComponent implements OnInit, OnDestroy {
   }
 
   openNewInstructorModal(): void {
-    /*const dialogRef = this.dialog.open(NewInstructorComponent, {
+    const dialogRef = this.dialog.open(NewInstructorComponent, {
       width: '600px',
       height: '600px',
       disableClose: true
     })
 
-    dialogRef.afterClosed().subscribe(newCourseAdded => {
-      if (newCourseAdded) {
-        this.Courses = undefined
-        this.findAllCourses()
+    dialogRef.afterClosed().subscribe(newInstructorsAdded => {
+      if (newInstructorsAdded) {
+        this.Instructors = undefined
+        this.findAllInstructors()
       }
-    })*/
+    })
   }
 
 }
