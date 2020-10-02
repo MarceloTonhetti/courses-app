@@ -1,0 +1,20 @@
+.content {
+  padding: 10px;
+}
+
+.instructorImage {
+  height: 400px;
+  width: 400px;
+}
+
+.instructorName {
+  font-size: 24px;
+  margin-top: 10px;
+  margin-left: -20px;
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+  width: 400px;
+  text-align: center;
+}

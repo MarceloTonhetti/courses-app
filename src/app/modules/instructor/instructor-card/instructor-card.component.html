@@ -1,0 +1,8 @@
+<mat-card class="mat-elevation-z4">
+  <mat-card-header>
+    <mat-card-title [routerLink]="['/instructors/detail', Instructor.name]" class="routerLink-instructor">
+      {{Instructor.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [routerLink]="['/instructors/detail', Instructor.name]"
+    class="instructor-image routerLink-instructor" [src]="Instructor.image" alt="Poster of a {{Instructor.name}}">
+</mat-card>

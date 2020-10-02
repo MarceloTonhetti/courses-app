@@ -1,0 +1,14 @@
+<app-loading *ngIf="!Instructor && !hasError"></app-loading>
+<app-error *ngIf="!Instructor && hasError"></app-error>
+<div *ngIf="Instructor && !hasError" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center"
+  fxLayoutAlign.gt-sm="center" fxLayoutGap="16px">
+  <div fxFlex="100%" fxFlex.gt-sm="100%">
+    <mat-card class="mat-elevation-z0">
+      <h2 class="instructorName uppercase-text"><b>{{Instructor.name}}</b></h2>
+      <img mat-card-image class="instructorImage" [src]="Instructor.image" alt="Photo of a {{Instructor.name}}">
+    </mat-card>
+  </div>
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let course of Courses">
+    <app-course-card [Course]="course"></app-course-card>
+  </div>
+</div>
