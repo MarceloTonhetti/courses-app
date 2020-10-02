@@ -39,6 +39,9 @@ import { NewCourseComponent } from './new-course/new-course.component'
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule
+  ],
+  exports: [
+    CourseCardComponent
   ]
 })
 export class CoursesModule { }

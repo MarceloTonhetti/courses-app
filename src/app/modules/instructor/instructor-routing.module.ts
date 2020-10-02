@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { InstructorComponent } from './../instructor/instructor.component'
-/* INSTRUCTORDETAIL import { CourseDetailComponent } from './../../modules/courses/course-detail/course-detail.component'*/
+import { InstructorDetailComponent } from './../../modules/instructor/instructor-detail/instructor-detail.component'
 
 const routes: Routes = [
   {
     path: '',
     component: InstructorComponent
+  },
+  {
+    path: 'detail/:instructorName',
+    component: InstructorDetailComponent
   }
-  /*  {
-      path: 'detail/:courseName',
-      component: CourseDetailComponent
-    }*/
 ];
 
 @NgModule({

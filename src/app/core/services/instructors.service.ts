@@ -17,6 +17,10 @@ export class InstructorsService {
     return this.http.get<Instructor[]>(`${API_URL}/instructor/viewAll`, { observe: 'response' })
   }
 
+  findInstructorByName(instructorName: String): Observable<HttpResponse<Instructor>> {
+    return this.http.get<Instructor>(`${API_URL}/instructor/viewOne/${instructorName}`, { observe: 'response' })
+  }
+
   createNewInstructor(body: Instructor): Observable<HttpResponse<Instructor>> {
     return this.http.post<Instructor>(`${API_URL}/instructor/create`, body, { observe: 'response' })
   }

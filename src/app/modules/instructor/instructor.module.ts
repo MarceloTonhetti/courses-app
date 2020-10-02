@@ -19,13 +19,16 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { InstructorCardComponent } from './instructor-card/instructor-card.component';
 import { InstructorDetailComponent } from './instructor-detail/instructor-detail.component';
+import { CoursesModule } from './../courses/courses.module';
+import { NewInstructorComponent } from './new-instructor/new-instructor.component'
 /*import { NewCourseComponent } from './new-course/new-course.component'*/
 
 @NgModule({
   declarations: [
     InstructorComponent,
     InstructorCardComponent,
-    InstructorDetailComponent/*,
+    InstructorDetailComponent,
+    NewInstructorComponent/*,
     CourseCardComponent,
     CourseDetailComponent,
     NewCourseComponent*/
@@ -42,7 +45,8 @@ import { InstructorDetailComponent } from './instructor-detail/instructor-detail
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    CoursesModule
   ]
 })
 export class InstructorModule { }
