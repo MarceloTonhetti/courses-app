@@ -1,14 +1,11 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Instructor } from './../../../core/models/instructor.model';
 import { InstructorsService } from './../../../core/services/instructors.service';
 import { MyToastrService } from './../../../core/services/toastr.service';
-import { CoursesService } from './../../../core/services/courses.service';
 import { InstructorValidator } from './../../../core/validators/instructor.validator'
-import { CourseValidator } from './../../../core/validators/course.validator'
 
 @Component({
   selector: 'app-new-instructor',
@@ -20,7 +17,6 @@ export class NewInstructorComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
 
   instructorFormGroup: FormGroup
-  isNewInstructor: boolean = true
   instructors: Instructor[]
   stepInstructorLabel: String = 'Instrutor'
   courseFormGroup: FormGroup
