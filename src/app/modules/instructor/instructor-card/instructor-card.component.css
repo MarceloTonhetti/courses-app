@@ -1,0 +1,15 @@
+.instructor-image {
+  height: 400px;
+}
+
+.content>mat-card {
+  width: 400px; 
+}
+
+.routerLink-instructor {
+  cursor: pointer;
+}
+
+.routerLink-instructor:hover {
+  text-decoration: underline;
+}
