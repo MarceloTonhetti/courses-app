@@ -13,6 +13,12 @@
         <div class="instructorName">{{Course.instructor.name}}</div>
       </mat-card-header>
     </mat-card>
+    <br>
+    <div class="row">
+      <button mat-mini-fab color="primary" aria-label="Atualizar curso" (click)="openUpdateCourseModal()"><mat-icon>edit</mat-icon></button>
+      &nbsp;
+      <button mat-mini-fab color="warn" aria-label="Excluir curso" (click)="openConfirmModal()"><mat-icon>delete</mat-icon></button>
+    </div>
   </div>
   <div fxFlex="50%" fxFlex.gt-sm="75%">
     <mat-card class="mat-elevation-z0">
