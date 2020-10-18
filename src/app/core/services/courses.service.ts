@@ -35,4 +35,8 @@ export class CoursesService {
   updateCourseById(courseId: String, body: Course): Observable<HttpResponse<Course>> {
     return this.http.put<Course>(`${API_URL}/course/update/${courseId}`, body, { observe: 'response' })
   }
+
+  deleteCourseById(courseId: String): Observable<HttpResponse<Course>> {
+    return this.http.delete<Course>(`${API_URL}/course/delete/${courseId}`, { observe: 'response' })
+  }
 }

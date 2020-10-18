@@ -36,4 +36,8 @@ export class InstructorsService {
     return this.http.put<Instructor>(`${API_URL}/instructor/update/${instructorId}`, body, { observe: 'response' })
   }
 
+  deleteInstructorById(instructorId: String): Observable<HttpResponse<Instructor>> {
+    return this.http.delete<Instructor>(`${API_URL}/instructor/delete/${instructorId}`, { observe: 'response' })
+  }
+
 }

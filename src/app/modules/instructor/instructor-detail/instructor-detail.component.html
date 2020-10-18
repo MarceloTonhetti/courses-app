@@ -10,6 +10,8 @@
     <br>
     <div class="row">
       <button mat-mini-fab color="primary" aria-label="Atualizar instrutor" (click)="openUpdateInstructorModal()"><mat-icon>edit</mat-icon></button>
+      &nbsp;
+      <button mat-mini-fab color="warn" aria-label="Excluir instrutor" (click)="openConfirmModal()"><mat-icon>delete</mat-icon></button>
     </div>
   </div>
   <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let course of Courses">
