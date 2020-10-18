@@ -7,6 +7,10 @@
       <h2 class="instructorName uppercase-text"><b>{{Instructor.name}}</b></h2>
       <img mat-card-image class="instructorImage" [src]="Instructor.image" alt="Photo of a {{Instructor.name}}">
     </mat-card>
+    <br>
+    <div class="row">
+      <button mat-mini-fab color="primary" aria-label="Atualizar instrutor" (click)="openUpdateInstructorModal()"><mat-icon>edit</mat-icon></button>
+    </div>
   </div>
   <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let course of Courses">
     <app-course-card [Course]="course"></app-course-card>

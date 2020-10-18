@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Atualizar curso: {{this.CourseUpdate['name']}}</h2>
+<form [formGroup]="courseFormGroup" class="form">
+  <mat-form-field class="form-element">
+    <mat-label>Plataforma</mat-label>
+    <input matInput formControlName="platform" placeholder="Plataforma" required>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Número de aulas</mat-label>
+    <input matInput formControlName="numberClasses" placeholder="Número de aulas" required>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Módulos</mat-label>
+    <input matInput formControlName="modules" placeholder="Módulos">
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Imagem</mat-label>
+    <input matInput formControlName="image" placeholder="Link da imagem" required>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description" placeholder="Descrição do curso" required></textarea>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <mat-label>Selecione um instrutor</mat-label>
+    <mat-select formControlName="instructor" [compareWith]="compareInstructor" required>
+       <mat-option *ngFor="let instructor of instructors" [value]="instructor">{{instructor.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="form-element">
+    <button class="button" color="primary" mat-button [disabled]="courseFormGroup.invalid" (click)="updateCourse()">Atualizar curso</button>
+  </div>
+  <div class="form-element">
+    <button class="button" color="warn" mat-button (click)="closeDialog()">Fechar</button>
+  </div>
+</form>

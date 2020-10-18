@@ -10,6 +10,7 @@ import { MatStepperModule } from '@angular/material/stepper'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
+import { MatIconModule } from '@angular/material/icon'
 
 import { InstructorRoutingModule } from './instructor-routing.module';
 import { InstructorComponent } from './instructor.component';
@@ -18,14 +19,16 @@ import { ComponentsModule } from './../../components/components.module';
 import { InstructorCardComponent } from './instructor-card/instructor-card.component';
 import { InstructorDetailComponent } from './instructor-detail/instructor-detail.component';
 import { CoursesModule } from './../courses/courses.module';
-import { NewInstructorComponent } from './new-instructor/new-instructor.component'
+import { NewInstructorComponent } from './new-instructor/new-instructor.component';
+import { UpdateInstructorComponent } from './update-instructor/update-instructor.component'
 
 @NgModule({
   declarations: [
     InstructorComponent,
     InstructorCardComponent,
     InstructorDetailComponent,
-    NewInstructorComponent
+    NewInstructorComponent,
+    UpdateInstructorComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { NewInstructorComponent } from './new-instructor/new-instructor.componen
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    CoursesModule
+    CoursesModule,
+    MatIconModule
   ]
 })
 export class InstructorModule { }

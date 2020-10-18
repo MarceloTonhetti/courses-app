@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MatDialog } from  '@angular/material/dialog';
 
 import { InstructorsService } from './../../../core/services/instructors.service';
+import { UpdateInstructorComponent } from './../../instructor/update-instructor/update-instructor.component'
 import { Instructor } from './../../../core/models/instructor.model';
 
 @Component({
@@ -15,15 +17,17 @@ export class InstructorDetailComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
   Instructor: Instructor
   hasError: boolean = false
+  instructorName: String
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private instructorService: InstructorsService
+    private instructorService: InstructorsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    const instructorName = this.activatedRoute.snapshot.params['instructorName']
-    this.findInstructorByName(instructorName)
+    this.instructorName = this.activatedRoute.snapshot.params['instructorName']
+    this.findInstructorByName(this.instructorName)
   }
 
   ngOnDestroy(): void {
@@ -35,6 +39,22 @@ export class InstructorDetailComponent implements OnInit, OnDestroy {
       this.Instructor = response.body['data']
     }, err => {
       this.hasError = true
+    })
+  }
+
+  openUpdateInstructorModal(): void {
+    const dialogRef = this.dialog.open(UpdateInstructorComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '250px',
+      data: this.Instructor
+    })
+
+    dialogRef.afterClosed().subscribe(updatedCourse => {
+      if(updatedCourse){
+        this.Instructor = undefined
+        this.findInstructorByName(this.instructorName)
+      }
     })
   }
 

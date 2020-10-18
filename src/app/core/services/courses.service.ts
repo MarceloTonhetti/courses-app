@@ -31,4 +31,8 @@ export class CoursesService {
     myParams = myParams.append('name', courseName)
     return this.http.get<any>(`${API_URL}/course/validadeCourseName`, { params: myParams })
   }
+
+  updateCourseById(courseId: String, body: Course): Observable<HttpResponse<Course>> {
+    return this.http.put<Course>(`${API_URL}/course/update/${courseId}`, body, { observe: 'response' })
+  }
 }
